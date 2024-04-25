@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h2>{{ disease }}</h2>
+    <p>Some info about the disease: </p>
+    <p>{{ description }}</p>
+    <br>
+    <h3>No need to worry {{ username }}. We even have some preventive measures for you!: </h3>
+    <p>{{ measures }}</p>
+</body>
+</html>
