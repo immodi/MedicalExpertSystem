@@ -303,12 +303,12 @@ class MedicalExpert(KnowledgeEngine):
     def get_disease_name(self):
         return(self.disease_output)
    
-facts = ['Ahmed', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no']
+# facts = ['Ahmed', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no']
 
 if __name__ == "__main__":
     engine = MedicalExpert()
     engine.reset()
-    engine.change_facts(facts)
+    # engine.change_facts(facts)
     engine.run()
     print(f"Disease is => {engine.get_disease_name()}")
     print('Printing engine facts after 1 run',engine.facts)

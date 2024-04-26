@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Test</title>
-    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    <h1>Hello mister/miss, {{ username }}</h1>
-    <br>
-    <form action="/result" method="post">
-        {% for question in questions %}
-        <label for="{{ loop.counter }}">{{ question }}</label>
-        <label for="{{ loop.counter }}">Please type Yes/No</label>
-        <br>
-        <input type="text" id="{{ loop.counter }}" name="answers">
-        <br>
-        <br>
-        {% endfor %}
-        <input type="text" name="username" hidden value="{{ username }}">
-        <button type="submit">Submit</button>
-    </form>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    Start Test
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="h1">Mister/Miss {{ username }}, please answer the following questions.</h1>
+        <form action="/result" method="post">
+            <div class="">
+                {% for question in questions %}
+                <label class="form-label" for="{{ loop.counter }}">{{ question }} - Please type Yes/No</label>
+                <input class="form-control mb-4" type="text" id="{{ loop.counter }}" name="answers">
+                {% endfor %}
+                <input type="text" name="username" hidden value="{{ username }}">
+                <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

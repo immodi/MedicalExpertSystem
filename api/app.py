@@ -3,12 +3,10 @@ path.append("../")
 
 import pathlib
 from fastapi import FastAPI, Request, Form
-from pydantic import BaseModel
 from typing import Annotated, List
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from experta import Fact
 from main import MedicalExpert
 
 app = FastAPI()
@@ -41,9 +39,8 @@ async def start_test(request: Request, username: Annotated[str, Form()]):
     )
 
 @app.get("/test/", response_class=HTMLResponse)
-async def start_test(request: Request):
-    return templates.TemplateResponse(request=request)
-
+async def start_test():
+    return RedirectResponse("/")
 
 @app.post("/result/", response_class=HTMLResponse)
 async def display_results(request: Request, username: Annotated[str, Form()], answers: List[str] = Form(...)):
@@ -75,5 +72,5 @@ async def display_results(request: Request, username: Annotated[str, Form()], an
         )
 
 @app.get("/result/", response_class=HTMLResponse)
-async def display_results(request: Request):
-    return templates.TemplateResponse(request=request)
+async def display_results():
+    return RedirectResponse("/")

@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's your name?</title>
-    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    <h1>Hello mister/miss, ?</h1>
-    <form action="/test" method="post">
-        <input type="text" name="username">
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    What's your name?
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="h1">Hello mister/miss, what's your name?</h1>
+        <form action="/test" method="post">
+            <div class="mb-3">
+                <input class="form-control mb-3" type="text" name="username" id="UsernameInput">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    <h2>{{ disease }}</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    Results
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="h2">{{ disease }}</h2>    
+    </div>
+{% endblock content %}
